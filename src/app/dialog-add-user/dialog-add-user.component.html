@@ -2,20 +2,20 @@
 <mat-dialog-content class="padding-top-5">
   <div>
     <mat-form-field class="margin-right-16" appearance="outline">
-      <mat-label>First name</mat-label>
-      <input matInput placeholder="Placeholder" />
+      <mat-label >First name</mat-label>
+      <input [(ngModel)]="user.firstName" matInput placeholder="Placeholder" />
       <!-- <mat-hint>Please enter a name</mat-hint> -->
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Last name</mat-label>
-      <input matInput placeholder="Placeholder" />
+      <input [(ngModel)]="user.lastName" matInput placeholder="Placeholder" />
       <!-- <mat-hint>Please enter a name</mat-hint> -->
     </mat-form-field>
   </div>
   <div>
     <mat-form-field appearance="outline" class="full-width">
       <mat-label>Birth Date</mat-label>
-      <input matInput placeholder="Placeholder" [matDatepicker]="picker" />
+      <input [(ngModel)]="birthDate" matInput placeholder="Placeholder" [matDatepicker]="picker" />
       <mat-datepicker-toggle
         matIconSuffix
         [for]="picker"
@@ -26,19 +26,19 @@
     <div>
       <mat-form-field class="margin-right-16 full-width" appearance="outline">
         <mat-label>Street + House Number</mat-label>
-        <input matInput placeholder="Placeholder" />
+        <input [(ngModel)]="user.street" matInput placeholder="Placeholder" />
         <!-- <mat-hint>Please enter a name</mat-hint> -->
       </mat-form-field>
     </div>
     <div>
       <mat-form-field class="margin-right-16" appearance="outline">
         <mat-label>Zip code</mat-label>
-        <input matInput placeholder="Placeholder" />
+        <input [(ngModel)]="user.zipCode" matInput placeholder="Placeholder" />
         <!-- <mat-hint>Please enter a name</mat-hint> -->
       </mat-form-field>
       <mat-form-field class="margin-right-16" appearance="outline">
         <mat-label>City</mat-label>
-        <input matInput placeholder="Placeholder" />
+        <input [(ngModel)]="user.city" matInput placeholder="Placeholder" />
         <!-- <mat-hint>Please enter a name</mat-hint> -->
       </mat-form-field>
     </div>
@@ -47,6 +47,6 @@
 <div class="padding-left-32">
 <mat-dialog-actions >
   <button mat-button>Cancel</button>
-  <button mat-button cdkFocusInitial>Save</button>
+  <button mat-button (click)="saveUser()" cdkFocusInitial>Save</button>
 </mat-dialog-actions>
 </div>
