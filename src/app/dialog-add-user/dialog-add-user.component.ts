@@ -50,4 +50,5 @@ export class DialogAddUserComponent {
       console.error('error adding user', error);
     }
   }
+
 }
