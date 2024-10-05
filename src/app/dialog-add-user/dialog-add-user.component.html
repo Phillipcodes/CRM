@@ -53,7 +53,7 @@
 </mat-dialog-content>
 <div class="padding-left-32">
 <mat-dialog-actions >
-  <button [disabled]="loading" mat-button>Cancel</button>
+  <button (click)="dialogRef.close()" [disabled]="loading" mat-button>Cancel</button>
   <button [disabled]="loading" mat-button (click)="saveUser()" cdkFocusInitial>Save</button>
 </mat-dialog-actions>
 </div>
