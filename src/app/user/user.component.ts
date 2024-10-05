@@ -20,8 +20,8 @@ import { Observable } from 'rxjs';
 })
 export class UserComponent implements OnInit {
   firestore: Firestore = inject(Firestore);
-  user = new User();
- 
+  user: User = new User();
+ allUsers:any  = []
   constructor(public dialog:MatDialog) {
     this.user.firstName
 
@@ -39,8 +39,9 @@ this.dialog.open(DialogAddUserComponent)
 
   subToUsers() {
     const userCollection = collection(this.firestore, 'users');
-    collectionData(userCollection).subscribe(users => {
-      console.log('All users:', users);
+    collectionData(userCollection).subscribe(changes => {
+      console.log('All users:', changes);
+      this.allUsers = changes
     });
   }
 }
