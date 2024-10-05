@@ -8,10 +8,11 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { Dialog } from '@angular/cdk/dialog';
 import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.component';
 import { User } from '../../models/user.class';
+import {MatCardModule} from '@angular/material/card';
 @Component({
   selector: 'app-user',
   standalone: true,
-  imports: [MatButtonModule,CommonModule,MatIconModule,MatTooltipModule,MatDialogModule],
+  imports: [MatButtonModule,CommonModule,MatIconModule,MatTooltipModule,MatDialogModule,MatCardModule],
   templateUrl: './user.component.html',
   styleUrl: './user.component.scss'
 })

@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -41,7 +41,7 @@ export class DialogAddUserComponent {
   birthDate!: Date;
   loading:boolean = false;
 
-  constructor() {}
+  constructor(public dialogRef: MatDialogRef<DialogAddUserComponent>) {}
 
   async saveUser() {
     try {
@@ -52,6 +52,7 @@ export class DialogAddUserComponent {
 
       const result = await addDoc(userCollection, this.user.toJSON());
       this.loading = false;
+      this.dialogRef.close()
       console.log('user are finished', result);
     } catch (error) {
       console.error('error adding user', error);
