@@ -27,6 +27,7 @@ mat-card-content {
 
     td {
         height: 48px;
+        width: max-content;
         &:first-child {
             padding-left: 16px;
         }

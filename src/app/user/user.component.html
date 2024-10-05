@@ -8,8 +8,8 @@
       </tr>
       @for(user of allUsers; track allUsers) {
       <tr>
-        <td>{{user.firstName}}</td>
-        <td>{{user.lastName}}</td>
+        <td>{{user.firstName}} {{user.lastName}}</td>
+        <td>{{user.email}}</td>
         <td>{{user.city}}</td>
       </tr>
     }
