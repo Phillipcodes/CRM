@@ -20,8 +20,8 @@ import { Observable } from 'rxjs';
 })
 export class UserComponent implements OnInit {
   firestore: Firestore = inject(Firestore);
-  user: User = new User();
- allUsers:any  = []
+  user = new User();
+ allUsers: any[]  = []
   constructor(public dialog:MatDialog) {
     this.user.firstName
 
