@@ -39,18 +39,23 @@ export class DialogAddUserComponent {
   firestore: Firestore = inject(Firestore);
   user = new User();
   birthDate!: Date;
+  loading:boolean = false;
+
   constructor() {}
 
   async saveUser() {
     try {
       this.user.birthDate = this.birthDate ? this.birthDate.getTime() : 0;
       console.log('current user', this.user);
+      this.loading = true;
       const userCollection = collection(this.firestore, 'users');
 
       const result = await addDoc(userCollection, this.user.toJSON());
+      this.loading = false;
       console.log('user are finished', result);
     } catch (error) {
       console.error('error adding user', error);
+      this.loading = false;
     }
   }
 
