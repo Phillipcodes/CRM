@@ -44,7 +44,7 @@ this.dialog.open(DialogAddUserComponent)
       console.log('All users:', changes);
       this.allUsers = []
       changes.forEach(doc => {
-        this.allUsers.push(new User(doc as User)) // gibt ann das die DocumentData aufjedenfall vom typen User
+        this.allUsers.push(new User(doc as User)) // gibt ann das die DocumentData aufjedenfall vom
       })
     });
   }
