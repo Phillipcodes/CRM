@@ -23,7 +23,7 @@ export class UserComponent implements OnInit {
   user = new User();
  allUsers: User[] = []
   constructor(public dialog:MatDialog) {
-    this.user.firstName
+ 
 
   }
 
@@ -39,7 +39,7 @@ this.dialog.open(DialogAddUserComponent)
 
   subToUsers() {
     const userCollection = collection(this.firestore, 'users');
-    collectionData(userCollection).subscribe(changes => {
+    collectionData(userCollection,{ idField: 'userId' }).subscribe(changes => {
       console.log('All users:', changes);
       this.allUsers = []
       changes.forEach(doc => {
