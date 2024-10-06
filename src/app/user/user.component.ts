@@ -21,7 +21,7 @@ import { Observable } from 'rxjs';
 export class UserComponent implements OnInit {
   firestore: Firestore = inject(Firestore);
   user = new User();
- allUsers: any[]  = []
+ allUsers: User[] = []
   constructor(public dialog:MatDialog) {
     this.user.firstName
 
@@ -41,7 +41,22 @@ this.dialog.open(DialogAddUserComponent)
     const userCollection = collection(this.firestore, 'users');
     collectionData(userCollection).subscribe(changes => {
       console.log('All users:', changes);
-      this.allUsers = changes
+      this.allUsers = []
+      changes.forEach(doc => {
+        this.allUsers.push(this.setUserObject(doc))
+      })
     });
+  }
+
+  setUserObject(obj:any): User {
+    return {
+      firstName: obj.firstName || '',
+      lastName:obj.lastName || '',
+      email: obj.email || '',
+      birthDate: obj.birthDate || 0,
+      street: obj.street || '',
+      zipCode: obj.zipCode || '',
+      city: obj.city || '',
+    }
   }
 }
