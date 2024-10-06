@@ -50,7 +50,7 @@ export class DialogAddUserComponent {
       this.loading = true;
       const userCollection = collection(this.firestore, 'users');
 
-      const result = await addDoc(userCollection, this.toJSON());
+      const result = await addDoc(userCollection, this.user.toJSON());
       this.loading = false;
       this.dialogRef.close()
       console.log('user are finished', result);
@@ -60,17 +60,6 @@ export class DialogAddUserComponent {
     }
   }
 
-  toJSON() {
-    return {
-        firstName: this.user.firstName,
-        lastName: this.user.lastName,
-        email: this.user.email,
-        birthDate: this.user.birthDate,
-        street: this.user.street,
-        zipCode: this.user.zipCode,
-        city: this.user.city,
-      
-    }
-}
+
   
 }

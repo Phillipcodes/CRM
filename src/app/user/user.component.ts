@@ -11,10 +11,11 @@ import { User } from '../../models/user.class';
 import {MatCardModule} from '@angular/material/card';
 import {Firestore,collectionData,collection,addDoc,} from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
+import { RouterModule, } from '@angular/router';
 @Component({
   selector: 'app-user',
   standalone: true,
-  imports: [MatButtonModule,CommonModule,MatIconModule,MatTooltipModule,MatDialogModule,MatCardModule],
+  imports: [MatButtonModule,CommonModule,MatIconModule,MatTooltipModule,MatDialogModule,MatCardModule,RouterModule],
   templateUrl: './user.component.html',
   styleUrl: './user.component.scss'
 })
@@ -43,20 +44,10 @@ this.dialog.open(DialogAddUserComponent)
       console.log('All users:', changes);
       this.allUsers = []
       changes.forEach(doc => {
-        this.allUsers.push(this.setUserObject(doc))
+        this.allUsers.push(new User(doc as User)) // gibt ann das die DocumentData aufjedenfall vom typen User
       })
     });
   }
 
-  setUserObject(obj:any): User {
-    return {
-      firstName: obj.firstName || '',
-      lastName:obj.lastName || '',
-      email: obj.email || '',
-      birthDate: obj.birthDate || 0,
-      street: obj.street || '',
-      zipCode: obj.zipCode || '',
-      city: obj.city || '',
-    }
-  }
+ 
 }

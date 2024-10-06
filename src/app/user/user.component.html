@@ -7,10 +7,11 @@
         <th>City</th>
       </tr>
       @for(user of allUsers; track allUsers) {
-      <tr>
+      <tr [routerLink]="['/user/' + user.userId]">
         <td>{{user.firstName}} {{user.lastName}}</td>
         <td>{{user.email}}</td>
         <td>{{user.city}}</td>
+        
       </tr>
     }
     </table>
