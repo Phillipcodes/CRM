@@ -4,11 +4,13 @@ import { collection, Firestore,doc,getDoc, docData } from '@angular/fire/firesto
 import { MatCard, MatCardContent, MatCardHeader, MatCardTitle } from '@angular/material/card';
 import { ActivatedRoute } from '@angular/router';
 import { User } from '../../models/user.class';
+import { MatIcon } from '@angular/material/icon';
+import { MatButton, MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-user-detail',
   standalone: true,
-  imports: [CommonModule,MatCard,MatCardContent,MatCardHeader,MatCardTitle],
+  imports: [CommonModule,MatCard,MatCardContent,MatCardHeader,MatCardTitle,MatIcon,MatButton,MatButtonModule],
   templateUrl: './user-detail.component.html',
   styleUrl: './user-detail.component.scss'
 })
@@ -36,5 +38,9 @@ export class UserDetailComponent implements OnInit {
     
       
     })
+  }
+
+  openAddressDialog() {
+    
   }
 }
