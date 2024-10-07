@@ -4,10 +4,11 @@ import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { User } from '../../models/user.class';
 @Component({
   selector: 'app-dialog-edit-user',
   standalone: true,
@@ -28,4 +29,14 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 })
 export class DialogEditUserComponent {
 
+  constructor(public dialogRef: MatDialogRef<DialogEditUserComponent>) {
+
+  }
+
+user!:User;
+loading:boolean = false;
+birthDate!:Date;
+saveUser() {
+
+}
 }

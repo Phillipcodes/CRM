@@ -9,7 +9,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { User } from '../../models/user.class';
-import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.component';
+
 
 @Component({
   selector: 'app-dialog-edit-address',
