@@ -1,1 +1,33 @@
-<p>dialog-edit-address works!</p>
+@if(loading){<mat-progress-bar  mode="indeterminate"></mat-progress-bar>}
+<h2 mat-dialog-title>Add User</h2>
+<mat-dialog-content class="padding-top-5">
+
+  <div>
+   
+    <div>
+      <mat-form-field class="margin-right-16 full-width" appearance="outline">
+        <mat-label>Street + House Number</mat-label>
+        <input [disabled]="loading" [(ngModel)]="user.street" matInput placeholder="Street + House Number" />
+        <!-- <mat-hint>Please enter a name</mat-hint> -->
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field class="margin-right-16" appearance="outline">
+        <mat-label>Zip code</mat-label>
+        <input [disabled]="loading" [(ngModel)]="user.zipCode" matInput placeholder="Zip code" />
+        <!-- <mat-hint>Please enter a name</mat-hint> -->
+      </mat-form-field>
+      <mat-form-field class="margin-right-16" appearance="outline">
+        <mat-label>City</mat-label>
+        <input [disabled]="loading" [(ngModel)]="user.city" matInput placeholder="City" />
+        <!-- <mat-hint>Please enter a name</mat-hint> -->
+      </mat-form-field>
+    </div>
+  </div>
+</mat-dialog-content>
+<div class="padding-left-32">
+<mat-dialog-actions >
+  <button (click)="dialogRef.close()" [disabled]="loading" mat-button>Cancel</button>
+  <button [disabled]="loading" mat-button (click)="saveUser()" cdkFocusInitial>Save</button>
+</mat-dialog-actions>
+</div>
