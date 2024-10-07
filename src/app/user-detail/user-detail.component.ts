@@ -38,6 +38,7 @@ export class UserDetailComponent implements OnInit {
     const userDocRef = doc(this.firestore, `users/${this.userId}`)
     docData(userDocRef).subscribe((user:any)=> {
       this.user= new User(user)
+   
     
     
       
@@ -52,6 +53,7 @@ export class UserDetailComponent implements OnInit {
   editUserDetail() {
      const dialog = this.dialog.open(DialogEditUserComponent)
     dialog.componentInstance.user = this.user
+    dialog.componentInstance.birthDate = new Date(this.user.birthDate)
   }
 }
 
