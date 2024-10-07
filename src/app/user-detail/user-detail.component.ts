@@ -7,6 +7,9 @@ import { User } from '../../models/user.class';
 import { MatIcon } from '@angular/material/icon';
 import { MatButton, MatButtonModule } from '@angular/material/button';
 import {MatMenuModule} from '@angular/material/menu';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogEditAddressComponent } from '../dialog-edit-address/dialog-edit-address.component';
+import { DialogEditUserComponent } from '../dialog-edit-user/dialog-edit-user.component';
 
 @Component({
   selector: 'app-user-detail',
@@ -20,7 +23,7 @@ export class UserDetailComponent implements OnInit {
   userId:string |null = ''
   user:User = new User();
 
-  constructor(private route:ActivatedRoute) {
+  constructor(private route:ActivatedRoute, public dialog: MatDialog) {
 
   }
 
@@ -42,10 +45,12 @@ export class UserDetailComponent implements OnInit {
   }
   
   editMenu() {
-
+    this.dialog.open(DialogEditAddressComponent)
   }
 
   editUserDetail() {
-    
+    this.dialog.open(DialogEditUserComponent)
   }
 }
+
+  
