@@ -6,11 +6,12 @@ import { ActivatedRoute } from '@angular/router';
 import { User } from '../../models/user.class';
 import { MatIcon } from '@angular/material/icon';
 import { MatButton, MatButtonModule } from '@angular/material/button';
+import {MatMenuModule} from '@angular/material/menu';
 
 @Component({
   selector: 'app-user-detail',
   standalone: true,
-  imports: [CommonModule,MatCard,MatCardContent,MatCardHeader,MatCardTitle,MatIcon,MatButton,MatButtonModule],
+  imports: [CommonModule,MatCard,MatCardContent,MatCardHeader,MatCardTitle,MatIcon,MatButton,MatButtonModule,MatMenuModule],
   templateUrl: './user-detail.component.html',
   styleUrl: './user-detail.component.scss'
 })
@@ -41,6 +42,10 @@ export class UserDetailComponent implements OnInit {
   }
 
   openAddressDialog() {
+
+  }
+  
+  editMenu() {
     
   }
 }
