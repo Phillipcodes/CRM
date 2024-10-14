@@ -1,10 +1,15 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { RouterModule } from '@angular/router';
+
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AppComponent],
+      imports: [AppComponent,RouterModule.forRoot([])],
+      providers:[provideAnimationsAsync()]
+      
     }).compileComponents();
   });
 
@@ -17,7 +22,7 @@ describe('AppComponent', () => {
   it(`should have the 'crm' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('crm');
+    expect(app.title).toEqual('CRM');
   });
 
 });

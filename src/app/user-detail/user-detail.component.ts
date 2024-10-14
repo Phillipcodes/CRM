@@ -35,6 +35,7 @@ export class UserDetailComponent implements OnInit {
   }
 
   getUser() {
+    
     const userDocRef = doc(this.firestore, `users/${this.userId}`)
     docData(userDocRef).subscribe((user:any)=> {
       this.user= new User(user)

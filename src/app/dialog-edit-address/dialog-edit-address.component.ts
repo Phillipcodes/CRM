@@ -32,7 +32,7 @@ import { collection, doc, Firestore, updateDoc } from '@angular/fire/firestore';
 })
 export class DialogEditAddressComponent {
   firestore: Firestore = inject(Firestore);
-  user!: User;
+  user: User = new User();
   userId!:string | null;
   loading:boolean = false;
   constructor(public dialogRef: MatDialogRef<DialogEditAddressComponent>) {
@@ -40,6 +40,7 @@ export class DialogEditAddressComponent {
   }
 
   async saveUser() {
+    
     const userDocRef= doc(this.firestore, `users/${this.userId}`)
     this.loading = true;
    await updateDoc(userDocRef, this.user.toJSON())
