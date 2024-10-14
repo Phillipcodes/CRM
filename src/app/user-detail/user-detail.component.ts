@@ -14,7 +14,7 @@ import { DialogEditUserComponent } from '../dialog-edit-user/dialog-edit-user.co
 @Component({
   selector: 'app-user-detail',
   standalone: true,
-  imports: [CommonModule,MatCard,MatCardContent,MatCardHeader,MatCardTitle,MatIcon,MatButton,MatButtonModule,MatMenuModule],
+  imports: [CommonModule,MatCard,MatCardContent,MatCardHeader,MatCardTitle,MatIcon,MatButton,MatButtonModule,MatMenuModule,],
   templateUrl: './user-detail.component.html',
   styleUrl: './user-detail.component.scss'
 })
